@@ -1,9 +1,11 @@
 const express = require("express");
 const router = express.Router();
 const jsonData = require("../../infos.json");
+const allUser = require("../../controller/users");
 
-router.route("/").get((req, res) => {
+/* router.route("/").get((req, res) => {
   res.send(jsonData);
-});
-
+}); */
+router.route("/all").get(allUser.getAllUser);
+router.route("/random").get(allUser.getRandomUser);
 module.exports = router;

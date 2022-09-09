@@ -7,10 +7,10 @@ const middleware = require("./middleware/middleware");
 const users = require("./router/v1/users");
 
 app.use(middleware);
-app.use("/users/v1/allData", users);
+app.use("/user", users);
 
-app.get("/hallo", (req, res) => {
-  res.send(jsonData);
+app.get("/", (req, res) => {
+  res.send("welcome to home route");
 });
 
 app.listen(port, () => {
