@@ -1,0 +1,26 @@
+[
+  {
+    "id": 1,
+    "gender": "female",
+    "name": "Knapp Ayala",
+    "contact": "+1 (874) 572-3200",
+    "address": "550 McKibben Street, Newry, New Mexico, 1730",
+    "photoUrl": "http://placehold.it/32x32"
+  },
+  {
+    "id": 2,
+    "gender": "male",
+    "name": "Ramirez Drake",
+    "contact": "+1 (841) 586-3526",
+    "address": "771 Lott Place, Layhill, Maine, 9861",
+    "photoUrl": "http://placehold.it/32x32"
+  },
+  {
+    "id": 3,
+    "gender": "male",
+    "name": "Maude Meyers",
+    "contact": "+1 (908) 542-3841",
+    "address": "138 Cedar Street, Watchtower, Maryland, 6855",
+    "photoUrl": "http://placehold.it/32x32"
+  }
+]
