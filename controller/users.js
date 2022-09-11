@@ -13,8 +13,13 @@ module.exports.getRandomUser = (req, res) => {
 
 module.exports.saveFile = (req, res) => {
   const info = req.body;
-  console.log(info);
-  jsonData.push(info);
-  console.log(jsonData);
-  res.send({ post: "success" });
+  const { id, gender, name, contact, address, photoUrl } = info;
+  if ((!id, !gender, !name, !contact, !address, !photoUrl)) {
+    res
+      .status(404)
+      .send({ message: "you have some error please send again on your info" });
+  } else {
+    jsonData.push(info);
+    res.send({ post: "success" });
+  }
 };
