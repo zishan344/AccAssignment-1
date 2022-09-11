@@ -23,3 +23,18 @@ module.exports.saveFile = (req, res) => {
     res.send({ post: "success" });
   }
 };
+
+module.exports.simpleUpdate = (req, res) => {
+  const id = req.params.id;
+  const check = Number(id);
+  console.log(check);
+  if (isNaN(check)) {
+    res.status(404).send({ message: "Invalid Id. Please provide a valid Id" });
+  }
+  // const update = req.body;
+  else {
+    const findArray = jsonData.find((u) => u.id == id);
+    (findArray.id = id), (findArray.contact = req.body.contact);
+    res.send(findArray);
+  }
+};

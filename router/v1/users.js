@@ -6,4 +6,5 @@ const allUser = require("../../controller/users");
 router.route("/all").get(allUser.getAllUser);
 router.route("/random").get(allUser.getRandomUser);
 router.route("/save").post(allUser.saveFile);
+router.route("/:id").patch(allUser.simpleUpdate);
 module.exports = router;
