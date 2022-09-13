@@ -1,4 +1,4 @@
-const jsonData = require("../infos.json");
+let jsonData = require("../infos.json");
 const fs = require("fs");
 module.exports.getAllUser = (req, res) => {
   const { limit } = req.query;
@@ -27,7 +27,7 @@ module.exports.saveFile = (req, res) => {
 module.exports.simpleUpdate = (req, res) => {
   const id = req.params.id;
   const check = Number(id);
-  console.log(check);
+
   if (isNaN(check)) {
     res.status(404).send({ message: "Invalid Id. Please provide a valid Id" });
   }
@@ -37,4 +37,25 @@ module.exports.simpleUpdate = (req, res) => {
     (findArray.id = id), (findArray.contact = req.body.contact);
     res.send(findArray);
   }
+};
+
+// module.exports.multipleUpdate = (req, res) => {};
+/* 
+module.exports.deleteData = (req, res) => {
+  const id = req.params.id;
+  const check = Number(id);
+
+  if (isNaN(check)) {
+    res.status(404).send({ message: "Invalid Id. Please provide a valid Id" });
+  } else {
+    const filter = jsonData.filter((t) => t.id !== id);
+    jsonData = filter;
+    res.send(jsonData);
+  }
+};
+ */
+module.exports.deleteData = (req, res) => {
+  const { id } = req.params;
+  jsonData = jsonData.filter((t) => t.id !== Number(id));
+  res.send(jsonData);
 };
