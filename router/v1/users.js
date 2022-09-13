@@ -8,4 +8,5 @@ router.route("/random").get(allUser.getRandomUser);
 router.route("/save").post(allUser.saveFile);
 router.route("/update/:id").patch(allUser.simpleUpdate);
 router.route("/:id").delete(allUser.deleteData);
+router.route("/bulkUpdate").put(allUser.multipleUpdate);
 module.exports = router;

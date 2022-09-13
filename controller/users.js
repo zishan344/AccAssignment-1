@@ -39,23 +39,35 @@ module.exports.simpleUpdate = (req, res) => {
   }
 };
 
-// module.exports.multipleUpdate = (req, res) => {};
-/* 
+module.exports.multipleUpdate = (req, res) => {
+  const update = req.body;
+  update.forEach((u, index) => {
+    const id = u.id;
+    const check = Number(id);
+
+    if (isNaN(check)) {
+      res.status(404).send({
+        message: `Invalid Id. Please provide a valid Id. index number ${index}`,
+      });
+    } else {
+      const find = jsonData.find((user) => user.id == u.id);
+      find.id = u.id;
+      find.contact = u.contact;
+    }
+  });
+  res.send({
+    update: "successfully. If needed to checked please get all data ",
+  });
+};
+
 module.exports.deleteData = (req, res) => {
-  const id = req.params.id;
+  const { id } = req.params;
   const check = Number(id);
 
   if (isNaN(check)) {
     res.status(404).send({ message: "Invalid Id. Please provide a valid Id" });
   } else {
-    const filter = jsonData.filter((t) => t.id !== id);
-    jsonData = filter;
+    jsonData = jsonData.filter((t) => t.id !== Number(id));
     res.send(jsonData);
   }
-};
- */
-module.exports.deleteData = (req, res) => {
-  const { id } = req.params;
-  jsonData = jsonData.filter((t) => t.id !== Number(id));
-  res.send(jsonData);
 };
